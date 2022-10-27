@@ -61,7 +61,7 @@
                     <label>Quantity:</label>
                   </div>
                   <div class="cell">
-                    <input type="number" v-model="inventory.carrots" />
+                    <input type="number" v-model.number="inventory.carrots" />
                   </div>
                 </div>
               </form>
@@ -156,7 +156,19 @@
               pineapples: 0,
               cherries: 0,
             },
+            cart: {
+              carrots: 0,
+              pineapples: 0,
+              cherries: 0,
+            },
           };
+        },
+        methods: {
+          addToCart(type) {
+            // receive type and number
+            this.cart[type] += this.inventory.carrots;
+            console.log(this.cart);
+          },
         },
       });
 
